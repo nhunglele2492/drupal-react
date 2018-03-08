@@ -69,6 +69,10 @@ class Login extends React.Component {
         <Redirect to="/" />
       );
     }
+    let messagesText = '';
+    if (this.state.error) {
+      messagesText = <p className="messages messages--error" dangerouslySetInnerHTML={{__html: this.state.error}} />
+    }
 
     return (
       <DefaultLayout title="Home Page">
@@ -85,6 +89,9 @@ class Login extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit}>
           <div className="container">
+            <div className="form-group">
+              {messagesText}
+            </div>
             <div className="form-item form-type-textfield form-item-name">
               <input name="name" value={this.state.name} onChange={this.handleChange} required id="name" className="form-text" type="text" placeholder="Enter Username" />
             </div>
@@ -92,10 +99,7 @@ class Login extends React.Component {
               <input name="password" value={this.state.password} onChange={this.handleChange} id="password" className="form-text" type="password" placeholder="Enter password" />
             </div>
             <div className="form-actions"> <input type="submit" className="form-submit" value="Login" /> </div>
-            <div className="form-group messages">
-              <p className="success">{this.state.success}</p>
-              <p className="error" dangerouslySetInnerHTML={{__html: this.state.error}} />
-            </div>
+            <br />
             <div><Link to='/user/register'>Dont have an account?</Link></div>
           </div>
         </form>

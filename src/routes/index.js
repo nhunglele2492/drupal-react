@@ -12,7 +12,6 @@ import BlogPage from './pages/Blog';
 
 // Page Detail
 import WorkDetailPage from './pages/WorkDetailPage';
-<<<<<<< HEAD
 import BlogDetail from './pages/BlogDetail';
 import ResourcesDetail from './pages/ResourcesDetail';
 import Contact from './pages/Contact';

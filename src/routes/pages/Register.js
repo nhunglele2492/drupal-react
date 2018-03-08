@@ -65,6 +65,12 @@ class Register extends React.Component {
   }
 
   render() {
+    let messagesText = '';
+    if (this.state.error) {
+      messagesText = <p className="messages messages--error" dangerouslySetInnerHTML={{__html: this.state.error}} />
+    }
+
+
     return (
       <DefaultLayout title="Home Page">
         <div className="hero-banner hero-banner--small bg--dark">
@@ -80,6 +86,9 @@ class Register extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit}>
           <div className="container">
+            <div className="form-group">
+              {messagesText}
+            </div>
             <div className="form-item form-type-textfield form-item-name">
               <input name="name" value={this.state.name} onChange={this.handleChange} id="name" className="form-text" type="text" placeholder="Enter Username" />
             </div>
@@ -93,10 +102,7 @@ class Register extends React.Component {
               <input name="password2" value={this.state.password2} onChange={this.handleChange} id="password2" className="form-text" type="password" placeholder="Enter password again" />
             </div>
             <div className="form-actions"> <input type="submit" className="form-submit" value="Register" /> </div>
-            <div className="form-group messages">
-              <p className="success">{this.state.success}</p>
-              <p className="error" dangerouslySetInnerHTML={{__html: this.state.error}} />
-            </div>
+            <br />
             <div><Link to='/user/login'>Already have an account?</Link></div>
           </div>
         </form>
