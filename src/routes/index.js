@@ -4,10 +4,16 @@ import {
   Route
 } from 'react-router-dom';
 
-// Pages
+// Pages List
 import Home from './pages/Home';
-import Work from './pages/Work';
+import ResourcesPage from './pages/Resources';
+import BlogPage from './pages/Blog';
+
+
+// Page Detail
 import WorkDetailPage from './pages/WorkDetailPage';
+import BlogDetail from './pages/BlogDetail';
+import ResourcesDetail from './pages/ResourcesDetail';
 
 // Css
 import '../Assets/css/styles.min.css';
@@ -17,8 +23,11 @@ export default () => (
   <Router>
     <div>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/work" component={Work}/>
+      <Route exact path="/resources" component={ResourcesPage}/>
+      <Route exact path="/blog" component={BlogPage}/>
       <Route path="/work/:id" component={WorkDetailPage} />
+      <Route path="/blog/:id" component={BlogDetail} />
+      <Route path="/resources/:id" component={ResourcesDetail} />
     </div>
   </Router>
 );
