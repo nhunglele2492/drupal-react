@@ -24,7 +24,7 @@ class BoxWork extends Component {
   render() {
     var itemData = []
     this.state.data.map((item, index) => {
-      itemData.push(<div className="grid-content__item">
+      itemData.push(<div className="grid-content__item" key={index}>
          <div className="grid-content__link"><Link to={"work/" + item.nid[0].value }>Read More</Link></div>
          <div className="grid-content__image"><img src={item.field_image_work[0].url} alt="FFW images" width="760" height="760" /></div>
          <div className="grid-content__group">
