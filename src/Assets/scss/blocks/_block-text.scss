@@ -6,13 +6,11 @@
   }
 
   &__content {
-    p {
-      font-size: 120%;
-      margin-bottom: 35px;
+    font-size: 120%;
+    margin-bottom: 35px;
 
-      @include susy-media(tablet) {
-        font-size: 140%;
-      }
+    @include susy-media(tablet) {
+      font-size: 140%;
     }
   }
 

@@ -4,13 +4,6 @@
   .article-author {
     margin-bottom: 20px;
 
-    @include susy-media(mobileLandscape) {
-      // align-items: center;
-      // display: flex;
-      // justify-content: start-flex;
-      // vertical-align: middle;
-    }
-
     &__picture {
       height: rem(30px);
       margin-right: rem(12px);
@@ -95,6 +88,10 @@
 
     @include susy-media(mobileOnly) {
       display: none;
+    }
+
+    img {
+      width: 200px;
     }
   }
 
