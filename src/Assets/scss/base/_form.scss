@@ -7,6 +7,20 @@ input[type='submit'] {
 
 .form-item {
   margin-bottom: 20px;
+
+  &.required {
+    label:after {
+      background-image: url($image-path + 'required.svg');
+      background-repeat: no-repeat;
+      background-size: 6px 6px;
+      content: '';
+      display: inline-block;
+      height: 6px;
+      margin: 0 0.3em;
+      vertical-align: super;
+      width: 6px;
+    }
+  }
 }
 
 .form-text,

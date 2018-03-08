@@ -14,6 +14,7 @@ import BlogPage from './pages/Blog';
 import WorkDetailPage from './pages/WorkDetailPage';
 import BlogDetail from './pages/BlogDetail';
 import ResourcesDetail from './pages/ResourcesDetail';
+import Contact from './pages/Contact';
 
 // Css
 import '../Assets/css/styles.min.css';
@@ -25,6 +26,7 @@ export default () => (
       <Route exact path="/" component={Home}/>
       <Route exact path="/resources" component={ResourcesPage}/>
       <Route exact path="/blog" component={BlogPage}/>
+      <Route exact path="/contact" component={Contact}/>
       <Route path="/work/:id" component={WorkDetailPage} />
       <Route path="/blog/:id" component={BlogDetail} />
       <Route path="/resources/:id" component={ResourcesDetail} />

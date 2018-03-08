@@ -57,19 +57,6 @@
       color: $white;
     }
 
-    .form-type-select {
-      position: relative;
-
-      &:before {
-        @extend %icons;
-        @extend .icon-triangle-down;
-        bottom: rem(20px);
-        color: $black;
-        position: absolute;
-        right: rem(10px);
-      }
-    }
-
     .form-actions {
       text-align: center;
     }

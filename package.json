@@ -2,6 +2,7 @@
   "name": "reactdrupal",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://thanhdo1991.github.io/drupal-react/build",
   "dependencies": {
     "axios": "^0.18.0",
     "firebase": "^4.10.1",
