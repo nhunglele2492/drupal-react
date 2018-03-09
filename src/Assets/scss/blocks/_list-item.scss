@@ -42,6 +42,12 @@
 
   &__body {
     margin-bottom: rem(20px);
+
+    * {
+      @include MarkWebPro;
+      font-size: rem(16px);
+      letter-spacing: 0;
+    }
   }
 
   &__meta {
@@ -147,6 +153,12 @@
 
     @include susy-media(desktop) {
       width: 40%;
+    }
+  }
+
+  &.work-list {
+    .article-list__image img {
+      width: auto;
     }
   }
 }

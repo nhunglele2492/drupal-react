@@ -1,11 +1,12 @@
 import React from 'react';
 import DefaultLayout from '../layout/DefaultLayout';
+import WorkList from '../components/WorkList';
 
 class Work extends React.Component {
   render() {
-    return (
-      <DefaultLayout title="Home Page" container>
-        <h1>work List</h1>
+    return(
+      <DefaultLayout>
+        <WorkList/>
       </DefaultLayout>
     )
   }
