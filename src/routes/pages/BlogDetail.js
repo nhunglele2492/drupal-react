@@ -63,6 +63,7 @@ class BlogDetail extends React.Component {
         </div>
         <div className="block-text">
           <div className="container">
+            <img src={this.state.image} alt=""/>
             <div className="block-text__content" dangerouslySetInnerHTML={{__html: this.state.body}} />
           </div>
         </div>

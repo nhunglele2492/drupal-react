@@ -115,6 +115,7 @@ $feed-gutter: 20px;
 
   &__item {
     background-size: cover;
+    background-position: center center;
     color: white;
     float: left;
     margin: rem(0 $feed-gutter  $feed-gutter 0);
