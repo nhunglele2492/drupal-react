@@ -30,6 +30,21 @@ $feed-gutter: 20px;
     @media only screen and (max-width: $medium) {
       padding: rem(15px 20px);
     }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(#000, .2);
+    }
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
   }
 
 
@@ -127,21 +142,27 @@ $feed-gutter: 20px;
     &:nth-child(7n + 5),
     &:nth-child(7n + 7) {
       .grid-feed__content {
-        display: none;
-      }
+        .grid-feed__title {
+          font-size: rem(20px);
+        }
 
-      &:before {
-        @extend %icons;
-        @extend .icon-instagram;
-        bottom: 20px;
-        font-size: rem(21px);
-        left: 20px;
-        position: absolute;
-
-        @include susy-media(tablet) {
-          font-size: rem(31px);
+        .grid-feed__date {
+          margin-bottom: rem(20px);
         }
       }
+
+      // &:before {
+      //   @extend %icons;
+      //   @extend .icon-instagram;
+      //   bottom: 20px;
+      //   font-size: rem(21px);
+      //   left: 20px;
+      //   position: absolute;
+      //
+      //   @include susy-media(tablet) {
+      //     font-size: rem(31px);
+      //   }
+      // }
     }
 
     &:nth-child(7n + 7) {

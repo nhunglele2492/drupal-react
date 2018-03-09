@@ -28,6 +28,7 @@ class Navbar extends Component {
       <nav className="navigation menu--main">
         <ul className="menu header__nav">
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/work">Work</Link></li>
           <li><Link to="/resources">Resources</Link></li>
           <li><Link to="/blog">Blog</Link></li>
           <li><Link to="/contact">Contact</Link></li>

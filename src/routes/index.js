@@ -9,6 +9,7 @@ import {
 import Home from './pages/Home';
 import ResourcesPage from './pages/Resources';
 import BlogPage from './pages/Blog';
+import Work from './pages/Work';
 
 
 // Page Detail
@@ -36,7 +37,9 @@ export default () => (
       <Route exact path="/blog" component={BlogPage}/>
       <Route path="/blog/:id" component={BlogDetail} />
 
+      <Route exact path="/work" component={Work} />
       <Route path="/work/:id" component={WorkDetailPage} />
+
       <Route path="/contact" component={Contact}/>
 
       <Route path="/user/login" component={Login} />

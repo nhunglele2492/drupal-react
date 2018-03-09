@@ -35,16 +35,9 @@ class BlogList extends Component {
                 <span className="article-author__position">{item.field_position[0].value}</span>
               </div>
             </div>
-            <div className="article-list__body">{item.body[0].value}</div>
+            <div className="article-list__body" dangerouslySetInnerHTML={{__html: item.body[0].value}} />
             <div className="article-list__meta">
               <div className="article-list__datetime">{item.field_date_time[0].value}</div>
-              <div className="article-list__tags">
-                {
-                  item.field_blog_tags.map((tag, i) => {
-                    return <div className="article-list__tags__item" key={i}>{tag.url}</div>
-                  })
-                }
-              </div>
             </div>
           </div>
           <div className="article-list__right">
