@@ -115,7 +115,6 @@ $feed-gutter: 20px;
 
   &__item {
     background-size: cover;
-    background-position: center center;
     color: white;
     float: left;
     margin: rem(0 $feed-gutter  $feed-gutter 0);
@@ -123,8 +122,38 @@ $feed-gutter: 20px;
     text-align: center;
     transition: all 0.2s;
 
-    &:nth-child(7n + 6) {
+    &:nth-child(7n + 2),
+    &:nth-child(7n + 4),
+    &:nth-child(7n + 5),
+    &:nth-child(7n + 7) {
+      .grid-feed__content {
+        display: none;
+      }
+
+      &:before {
+        @extend %icons;
+        @extend .icon-instagram;
+        bottom: 20px;
+        font-size: rem(21px);
+        left: 20px;
+        position: absolute;
+
+        @include susy-media(tablet) {
+          font-size: rem(31px);
+        }
+      }
+    }
+
+    &:nth-child(7n + 7) {
       background: $dark-cgray;
+
+      &:hover {
+        background: $dark-blue;
+      }
+    }
+
+    &:nth-child(7n + 6) {
+      background: $text-color;
 
       .grid-feed__title {
         @include susy-media(tablet) {
