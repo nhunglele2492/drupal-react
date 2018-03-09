@@ -12,14 +12,14 @@ export default class Input extends Component {
   }
 
   render() {
-    const { label, type, required, placeholder, name } = this.props;
+    const { label, type, required, placeholder, name, value } = this.props;
     const classes = required ? 'form-item form-type-textfield required' : 'form-item form-type-textfield';
 
     return (
       <div className={classes}>
         <label>{label}</label>
         <input type={type} name={name} className="form-text" placeholder={placeholder}
-          required={required} onChange={this.inputChange} />
+          required={required} onChange={this.inputChange} value={value} />
       </div>
     )
   }

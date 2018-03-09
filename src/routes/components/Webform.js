@@ -15,7 +15,9 @@ export default class Webform extends Component {
       form_elements: {},
       isFetching: true,
       data: {},
-      submission: false
+      submission: false,
+      username: localStorage.getItem('username'),
+      email: localStorage.getItem('email')
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);

@@ -34,10 +34,10 @@ class WorkList extends Component {
   render() {
     return (
       <div>
-        <div class="article-title text--center">
-          <div class="container">
-            <div class="article-title__datetime">{this.state.client}</div>
-            <h1 class="article-title__heading">{this.state.title}</h1>
+        <div className="article-title text--center">
+          <div className="container">
+            <div className="article-title__datetime">{this.state.client}</div>
+            <h1 className="article-title__heading">{this.state.title}</h1>
           </div>
         </div>
       </div>

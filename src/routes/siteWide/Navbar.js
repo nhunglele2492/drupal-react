@@ -11,9 +11,10 @@ class Navbar extends Component {
 
   renderLink() {
     let loggedIn = localStorage.getItem('auth');
+    let uid = localStorage.getItem('uid');
     if(loggedIn) {
       return(
-        <li><span>Hi, {this.state.username} |</span><Link to="/user/logout">Logout</Link></li>
+        <li className="user-info"><Link to={"/user/" + uid }>Hi, {this.state.username} </Link><span>|</span><Link to="/user/logout">Logout</Link></li>
       )
     } else {
       return(
