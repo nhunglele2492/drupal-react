@@ -12,7 +12,7 @@ class RecentResources extends Component {
 
    // calling the componentDidMount() method after a component is rendered for the first time
   componentDidMount() {
-    var th = this;
+    let th = this;
     this.serverRequest = axios.get("http://dev-d8react.pantheonsite.io/api/recent-resources")
     .then(function(results) {
        th.setState({
@@ -22,7 +22,7 @@ class RecentResources extends Component {
    }
 
   render() {
-    var itemData = []
+    let itemData = []
     this.state.data.map((item, index) => {
       itemData.push(<div key={index} className="block-cta__item bg--dark-blue--overlay" style={{backgroundImage: "url(" + item.field_resource_image[0].url + ")"}}>
           <div className="block-cta__content">

@@ -13,7 +13,7 @@ class SliderList extends Component {
 
    // calling the componentDidMount() method after a component is rendered for the first time
   componentDidMount() {
-    var th = this;
+    let th = this;
     this.serverRequest = axios.get("http://dev-d8react.pantheonsite.io/api/resources")
     .then(function(results) {
        th.setState({
@@ -23,8 +23,8 @@ class SliderList extends Component {
    }
 
   render() {
-    var itemData = [];
-    var settings = {
+    let itemData = [];
+    let settings = {
       dots: true,
       infinite: true,
       speed: 1000,

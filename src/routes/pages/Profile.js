@@ -20,7 +20,6 @@ class Profile extends React.Component {
       headers: {"Authorization":"Basic " + auth}
     })
     .then(function(result){
-      console.log(result.data);
       let datedate = result.data.created["0"].value;
       let cdate = (new Date(datedate)).toLocaleDateString();
       self.setState({
@@ -34,7 +33,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <DefaultLayout title="Home Page">
         <div className="hero-banner hero-banner--small bg--dark">

@@ -55,7 +55,7 @@ class Register extends React.Component {
       self.setState({redirect: true});
     })
     .catch(function (error) {
-      var errorResponse = error.response.data.message;
+      let errorResponse = error.response.data.message;
       errorResponse = errorResponse.replace(/(?:\r\n|\r|\n)/g, '<br />');
       self.setState({
         'success': '',

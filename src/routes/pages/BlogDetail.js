@@ -19,12 +19,11 @@ class BlogDetail extends React.Component {
 
    // calling the componentDidMount() method after a component is rendered for the first time
   componentDidMount() {
-    //console.log(this.props);
     let id = '';
     if (this.props.match.params.id !== undefined) {
       id = this.props.match.params.id;
     }
-    var self = this;
+    let self = this;
     this.serverRequest = axios.get('http://dev-d8react.pantheonsite.io/node/' + id + '?_format=hal_json')
     .then(function(result){
       let img_src = '';
@@ -36,7 +35,6 @@ class BlogDetail extends React.Component {
           });
         }
       });
-      //console.log(result.data._embedded);
       self.setState({
         date: result.data.field_date_time["0"].value,
         title: result.data.title["0"].value,

@@ -12,7 +12,7 @@ class BoxWork extends Component {
 
    // calling the componentDidMount() method after a component is rendered for the first time
   componentDidMount() {
-    var th = this;
+    let th = this;
     this.serverRequest = axios.get("http://dev-d8react.pantheonsite.io/api/boxwork")
     .then(function(results) {
        th.setState({
@@ -22,7 +22,7 @@ class BoxWork extends Component {
    }
 
   render() {
-    var itemData = []
+    let itemData = []
     this.state.data.map((item, index) => {
       itemData.push(<div className="grid-content__item" key={index}>
          <div className="grid-content__link"><Link to={"work/" + item.nid[0].value }>Read More</Link></div>

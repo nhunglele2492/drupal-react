@@ -12,7 +12,7 @@ class BlogList extends Component {
 
    // calling the componentDidMount() method after a component is rendered for the first time
   componentDidMount() {
-    var th = this;
+    let th = this;
     this.serverRequest = axios.get("http://dev-d8react.pantheonsite.io/api/blog")
     .then(function(results) {
        th.setState({
@@ -22,7 +22,7 @@ class BlogList extends Component {
    }
 
   render() {
-    var itemData = []
+    let itemData = []
     this.state.data.map((item, index) => {
       itemData.push(
         <div key={index} className="grid-feed__item grid-feed__item--blog" style={{backgroundImage: "url(" + item.field_blog_image[0].url + ")"}}>

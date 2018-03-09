@@ -49,7 +49,7 @@ export default class Webform extends Component {
   submissionForm(csrfToken, data) {
     const th = this;
 
-    var postOptions = {
+    let postOptions = {
       method: 'POST',
       url: HTTP_URL + '/webform_rest/submit',
       data: JSON.stringify(data),
@@ -96,7 +96,6 @@ export default class Webform extends Component {
 
   render() {
     const { form_elements } = this.state;
-    console.log(form_elements);
 
     let formElements = [];
     Object.keys(form_elements).forEach((key) => {

@@ -12,7 +12,7 @@ class ResourcesList extends Component {
 
    // calling the componentDidMount() method after a component is rendered for the first time
   componentDidMount() {
-    var th = this;
+    let th = this;
     this.serverRequest = axios.get("http://dev-d8react.pantheonsite.io/api/resources")
     .then(function(results) {
        th.setState({
@@ -22,7 +22,7 @@ class ResourcesList extends Component {
    }
 
   render() {
-    var itemData = []
+    let itemData = []
     this.state.data.map((item, index) => {
       itemData.push(<div className="resources-view__item" key={index}>
          <div className="resources-view__link-img">
