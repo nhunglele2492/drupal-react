@@ -39,11 +39,11 @@ class SliderList extends Component {
       itemData.push(<div className="slide__item bg--dark-blue--overlay">
          <div className="slide__media" style={{backgroundImage: "url(" + item.field_resource_image[0].url + ")"}}>
           </div>
-          <div class="slide__constrained">
-            <div class="slide__caption container">
-              <h2 class="slide__title">{item.title[0].value}</h2>
-              <div class="slide__description">{item.field_body[0].value.substring(0, 82)}</div>
-              <div class="slide__link"><Link to={"resources/" + item.nid[0].value} className="btn">{item.field_text_link[0].value}</Link></div>
+          <div className="slide__constrained">
+            <div className="slide__caption container">
+              <h2 className="slide__title">{item.title[0].value}</h2>
+              <div className="slide__description">{item.field_body[0].value.substring(0, 82)}</div>
+              <div className="slide__link"><Link to={"resources/" + item.nid[0].value} className="btn">{item.field_text_link[0].value}</Link></div>
             </div>
           </div>
        </div>);
