@@ -50,8 +50,8 @@ class ResourcesDetail extends React.Component {
             </div>
           </div>
         </div>
-        <div class="box-feature">
-          <div class="container">
+        <div className="box-feature">
+          <div className="container">
             <div className="box-feature__inner">
               <div className="box-feature__text">{this.state.body}</div>
               <div className="box-feature__media"><img src={this.state.image} alt=""/></div>

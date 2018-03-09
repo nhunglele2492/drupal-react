@@ -26,6 +26,8 @@ class BlogList extends Component {
     this.state.data.map((item, index) => {
       itemData.push(
         <div className="grid-feed__item grid-feed__item--blog" style={{backgroundImage: "url(" + item.field_blog_image[0].url + ")"}}>
+          <div className="grid-feed__content">
+          </div>
           <div className="grid-feed__link"><Link to={"blog/" + item.nid[0].value }></Link></div>
        </div>);
 

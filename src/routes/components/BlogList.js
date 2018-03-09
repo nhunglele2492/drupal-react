@@ -27,11 +27,11 @@ class BlogList extends Component {
       itemData.push(<div className="article-list__item">
           <div className="article-list__left">
             <h4 className="article-list__title"><Link to={"blog/" + item.nid[0].value }>{item.title[0].value}</Link></h4>
-            <div class="article-author">
-              <div class="article-author__group">
+            <div className="article-author">
+              <div className="article-author__group">
                 <span>Thought by</span>
-                <a class="article-author__name" href={item.field_author[0].url}>{item.field_author[0].target_id}</a>,
-                <span class="article-author__position">{item.field_position[0].value}</span>
+                <Link className="article-author__name" to={item.field_author[0].url}>{item.field_author[0].target_id}</Link>,
+                <span className="article-author__position">{item.field_position[0].value}</span>
               </div>
             </div>
             <div className="article-list__body">{item.body[0].value}</div>

@@ -11,7 +11,6 @@ class Header extends Component {
           <Link className="header__logo" to="/" label="logo"><img src={logo} alt=''/></Link>
           <nav className="navigation menu--main">
             <ul className="menu header__nav">
-              <li><Link to="/">Home</Link></li>
               <li><Link to="/resources">Resources</Link></li>
               <li><Link to="/blog">Blog</Link></li>
             </ul>

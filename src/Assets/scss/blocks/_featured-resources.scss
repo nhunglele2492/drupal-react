@@ -31,6 +31,7 @@
       background-position: center center;
       background-size: cover;
       height: 500px;
+      background-repeat: no-repeat;
 
       @media only screen and (min-width:$small ) and (max-width: $xlarge) {
         height: 400px;
