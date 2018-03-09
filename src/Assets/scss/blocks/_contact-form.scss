@@ -33,6 +33,11 @@
 
     .form-select {
       appearance: none;
+      background-color: $white;
+      background-image: url($image-path + 'select-icon.svg');
+      background-position: center right rem(10px);
+      background-repeat: no-repeat;
+      background-size: rem(14px) auto;
     }
 
     textarea {

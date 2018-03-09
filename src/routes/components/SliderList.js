@@ -36,7 +36,7 @@ class SliderList extends Component {
     };
 
     this.state.data.map((item, index) => {
-      itemData.push(<div className="slide__item bg--dark-blue--overlay">
+      itemData.push(<div className="slide__item bg--dark-blue--overlay" key={index}>
          <div className="slide__media" style={{backgroundImage: "url(" + item.field_resource_image[0].url + ")"}}>
           </div>
           <div className="slide__constrained">

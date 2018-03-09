@@ -57,7 +57,7 @@ class BlogDetail extends React.Component {
             <div className="article-author">
               <div className="article-author__group">
                 <span>Thought by</span>
-                <Link className="article-author__name" to={this.state.author}>{this.state.author}</Link>,
+                  <Link className="article-author__name" to={this.state.author}>{this.state.author}</Link>,
                 <span className="article-author__position">{this.state.position}</span>
               </div>
             </div>
