@@ -48,15 +48,15 @@ class BlogDetail extends React.Component {
   render() {
     return (
       <DefaultLayout>
-        <div class="article-title text--center">
-          <div class="container">
-            <div class="article-title__datetime">{this.state.date}</div>
-            <h1 class="article-title__heading">{this.state.title}</h1>
-            <div class="article-author">
-              <div class="article-author__group">
+        <div className="article-title text--center">
+          <div className="container">
+            <div className="article-title__datetime">{this.state.date}</div>
+            <h1 className="article-title__heading">{this.state.title}</h1>
+            <div className="article-author">
+              <div className="article-author__group">
                 <span>Thought by</span>
-                <a class="article-author__name" href={this.state.author}>{this.state.author}</a>,
-                <span class="article-author__position">{this.state.position}</span>
+                <a className="article-author__name" href={this.state.author}>{this.state.author}</a>,
+                <span className="article-author__position">{this.state.position}</span>
               </div>
             </div>
           </div>

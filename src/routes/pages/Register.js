@@ -49,7 +49,7 @@ class Register extends React.Component {
     })
     .then(function (response) {
       self.setState({
-        'success': 'Registration successful',
+        'success': 'Registration successful.',
         'error': ''
       });
       self.setState({redirect: true});
@@ -67,14 +67,18 @@ class Register extends React.Component {
   render() {
     let messagesText = '';
     if (this.state.error) {
-      messagesText = <p className="messages messages--error" dangerouslySetInnerHTML={{__html: this.state.error}} />
+      messagesText = <div className="form-item"><p className="messages messages--error" dangerouslySetInnerHTML={{__html: this.state.error}} /></div>
     }
 
+    let successText = '';
+      if (this.state.success) {
+      successText = <div className="form-item"><p className="messages messages--status">{this.state.success}</p></div>
+    }
 
     return (
       <DefaultLayout title="Home Page">
         <div className="hero-banner hero-banner--small bg--dark">
-          <div className="hero-banner__image"><img src="//unsplash.it/1920/600" alt="FFW images" width="1920" height="600" /> </div>
+          <div className="hero-banner__image"><img src="https://i.imgur.com/U4CSCJh.jpg" alt="FFW images" width="1920" height="600" /> </div>
           <div className="hero-banner__inner">
             <div className="container">
               <div className="hero-banner__content">
@@ -84,11 +88,10 @@ class Register extends React.Component {
             </div>
           </div>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="container">
-            <div className="form-group">
-              {messagesText}
-            </div>
+        <div className="container">
+          <form onSubmit={this.handleSubmit} className="box-content">
+            {messagesText}
+            {successText}
             <div className="form-item form-type-textfield form-item-name">
               <input name="name" value={this.state.name} onChange={this.handleChange} id="name" className="form-text" type="text" placeholder="Enter Username" />
             </div>
@@ -104,8 +107,8 @@ class Register extends React.Component {
             <div className="form-actions"> <input type="submit" className="form-submit" value="Register" /> </div>
             <br />
             <div><Link to='/user/login'>Already have an account?</Link></div>
-          </div>
-        </form>
+          </form>
+        </div>
       </DefaultLayout>
     )
   }

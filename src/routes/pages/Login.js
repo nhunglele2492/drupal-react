@@ -44,7 +44,6 @@ class Login extends React.Component {
         'error': ''
       });
 
-      console.log(response);
       localStorage.setItem('username', response.data.current_user.name);
       localStorage.setItem('uid', response.data.current_user.uid);
       localStorage.setItem('csrf_token', response.data.csrf_token);
@@ -69,15 +68,21 @@ class Login extends React.Component {
         <Redirect to="/" />
       );
     }
+    
     let messagesText = '';
     if (this.state.error) {
-      messagesText = <p className="messages messages--error" dangerouslySetInnerHTML={{__html: this.state.error}} />
+      messagesText = <div className="form-item"><p className="messages messages--error" dangerouslySetInnerHTML={{__html: this.state.error}} /></div>
+    }
+
+    let successText = '';
+      if (this.state.success) {
+      successText = <div className="form-item"><p className="messages messages--status">{this.state.success}</p></div>
     }
 
     return (
       <DefaultLayout title="Home Page">
         <div className="hero-banner hero-banner--small bg--dark">
-          <div className="hero-banner__image"><img src="//unsplash.it/1920/600" alt="FFW images" width="1920" height="600" /> </div>
+          <div className="hero-banner__image"><img src="https://i.imgur.com/LzPyv3z.jpg" alt="FFW images" width="1920" height="600" /> </div>
           <div className="hero-banner__inner">
             <div className="container">
               <div className="hero-banner__content">
@@ -87,11 +92,10 @@ class Login extends React.Component {
             </div>
           </div>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="container">
-            <div className="form-group">
-              {messagesText}
-            </div>
+        <div className="container">
+          <form onSubmit={this.handleSubmit} className="box-content">
+            {messagesText}
+            {successText}
             <div className="form-item form-type-textfield form-item-name">
               <input name="name" value={this.state.name} onChange={this.handleChange} required id="name" className="form-text" type="text" placeholder="Enter Username" />
             </div>
@@ -101,8 +105,8 @@ class Login extends React.Component {
             <div className="form-actions"> <input type="submit" className="form-submit" value="Login" /> </div>
             <br />
             <div><Link to='/user/register'>Dont have an account?</Link></div>
-          </div>
-        </form>
+          </form>
+        </div>
       </DefaultLayout>
     )
   }

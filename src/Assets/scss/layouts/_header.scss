@@ -43,6 +43,8 @@
             background: #fff;
           }
         }
+
+
       }
     }
   }
@@ -153,6 +155,16 @@
           &:nth-child(3) {
             top: 100%;
           }
+        }
+      }
+
+      &.user-info {
+        * {
+          display: inline-block!important;
+        }
+
+        span {
+          margin: 0 5px;
         }
       }
 
@@ -296,4 +308,3 @@
     height: 85px;
   }
 }
-
