@@ -1,3 +1,14 @@
+
+@font-face {
+  font-family: 'ffw';
+  src: url('../fonts/ffw.eot');
+  src: url('../fonts/ffw.eot') format('embedded-opentype'),
+       url('../fonts/ffw.woff2') format('woff2'),
+       url('../fonts/ffw.woff') format('woff'),
+       url('../fonts/ffw.ttf') format('truetype'),
+       url('../fonts/ffw.svg#ffw') format('svg');
+}
+
 @font-face {
   font-family: 'MarkWebPro';
   src: url('../fonts/MarkWebPro.eot');

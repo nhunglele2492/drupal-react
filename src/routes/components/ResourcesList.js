@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 class ResourcesList extends Component {
@@ -24,11 +24,11 @@ class ResourcesList extends Component {
   render() {
     var itemData = []
     this.state.data.map((item, index) => {
-      itemData.push(<div className="resources-view__item">
+      itemData.push(<div className="resources-view__item" key={index}>
          <div className="resources-view__link-img">
-            <a href={"resources/" + item.nid[0].value } style={{backgroundImage: "url(" + item.field_resource_image[0].url + ")"}}>
+            <Link to={"resources/" + item.nid[0].value } style={{backgroundImage: "url(" + item.field_resource_image[0].url + ")"}}>
               <div className="read-more">Read More</div>
-            </a>
+            </Link>
           </div>
           <div className="resources-view__type">{item.field_type[0].value}</div>
           <div className="resources-view__title">{item.title[0].value}</div>

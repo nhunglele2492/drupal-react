@@ -22,15 +22,16 @@ class BlogList extends Component {
    }
 
   render() {
+    console.log(this.state.data);
     var itemData = []
     this.state.data.map((item, index) => {
       itemData.push(<div className="article-list__item" key={index}>
           <div className="article-list__left">
-            <h4 className="article-list__title"><Link to={"/blog/" + item.nid[0].value }>{item.title[0].value}</Link></h4>
+            <h4 className="article-list__title"><Link to={"blog/" + item.nid[0].value }>{item.title[0].value}</Link></h4>
             <div className="article-author">
               <div className="article-author__group">
                 <span>Thought by</span>
-                <a className="article-author__name" href={item.field_author[0].url}>{item.field_author[0].target_id}</a>,
+                <Link className="article-author__name" to={item.field_author[0].url}>{item.field_author[0].target_id}</Link>,
                 <span className="article-author__position">{item.field_position[0].value}</span>
               </div>
             </div>
@@ -39,8 +40,8 @@ class BlogList extends Component {
               <div className="article-list__datetime">{item.field_date_time[0].value}</div>
               <div className="article-list__tags">
                 {
-                  item.field_blog_tags.map((tag, index) => {
-                    return <div className="article-list__tags__item" key={index}>{tag.url}</div>
+                  item.field_blog_tags.map((tag, i) => {
+                    return <div className="article-list__tags__item" key={i}>{tag.url}</div>
                   })
                 }
               </div>
