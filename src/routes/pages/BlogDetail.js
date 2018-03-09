@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
+
 import DefaultLayout from '../layout/DefaultLayout';
 
 class BlogDetail extends React.Component {
@@ -55,7 +57,7 @@ class BlogDetail extends React.Component {
             <div className="article-author">
               <div className="article-author__group">
                 <span>Thought by</span>
-                <a className="article-author__name" href={this.state.author}>{this.state.author}</a>,
+                  <Link className="article-author__name" to={this.state.author}>{this.state.author}</Link>,
                 <span className="article-author__position">{this.state.position}</span>
               </div>
             </div>
@@ -63,6 +65,7 @@ class BlogDetail extends React.Component {
         </div>
         <div className="block-text">
           <div className="container">
+            <img src={this.state.image} alt=""/>
             <div className="block-text__content" dangerouslySetInnerHTML={{__html: this.state.body}} />
           </div>
         </div>

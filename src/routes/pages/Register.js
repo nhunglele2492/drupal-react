@@ -78,7 +78,7 @@ class Register extends React.Component {
     return (
       <DefaultLayout title="Home Page">
         <div className="hero-banner hero-banner--small bg--dark">
-          <div className="hero-banner__image"><img src="https://i.imgur.com/U4CSCJh.jpg" alt="FFW images" width="1920" height="600" /> </div>
+          <div className="hero-banner__image"><img src="https://i.imgur.com/McKDfLF.jpg" alt="FFW images" width="1920" height="600" /> </div>
           <div className="hero-banner__inner">
             <div className="container">
               <div className="hero-banner__content">

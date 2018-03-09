@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class OurCLients extends Component {
   render() {
@@ -47,7 +48,7 @@ class OurCLients extends Component {
               </a>
             </div>
           </div>
-          <div className="grid-client__link"><a href="/" className="btn">Contact Us</a> </div>
+          <div className="grid-client__link"><Link to="/contact" className="btn">Contact Us</Link></div>
         </div>
       </div>
     );
