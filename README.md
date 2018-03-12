@@ -1,22 +1,33 @@
-# drupal-react
+# Drupal 8 and React Js
+This is a demos site of React.js and Drupal 8 created by FFWVN team.
 
-1. Run below command to install all the required packages with Node Package Manager.
+## How to Install
+Go to Project Folder and run:
+```
+npm install
+```
 
-  ```
-  npm install
-  ```
+## How to Use
+To compile sass to css, Let's run:
+```
+gulp
+```
 
-2. Start up watches and local server
+To run and develop the app, Let's run:
+```
+npm start
+```
 
-  ```
-  gulp
-  ```
+## How to Deploy
+This project deployed code to Firebase.
 
-2. Deploy
+Follow step by step to deploy code:
+1. Build the app
+```
+react-scripts build
+```
 
-  ```
-  npm run build
-  ```
-  ```
-  firebase deploy
-  ```
+2. Deploy app to Firebase:
+```
+firebase deploy
+```
