@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+
+import * as Utilities from '../api';
 import DefaultLayout from '../layout/DefaultLayout';
 
 class Profile extends React.Component {
@@ -16,7 +18,7 @@ class Profile extends React.Component {
     let uid = localStorage.getItem('uid');
     let auth = localStorage.getItem('auth');
     let self = this;
-    this.serverRequest = axios.get('http://dev-d8react.pantheonsite.io/user/' + uid + '?_format=json', {
+    this.serverRequest = axios.get(Utilities.getUserById(uid), {
       headers: {"Authorization":"Basic " + auth}
     })
     .then(function(result){

@@ -1,13 +1,44 @@
 import React from 'react';
+import axios from 'axios';
+
+import * as Utilities from '../api';
 import Webform from '../components/Webform'
 import PageHeading from '../components/PageHeading'
 import DefaultLayout from '../layout/DefaultLayout';
 
 class Contact extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hr_data: {}
+    }
+  }
+
+  componentDidMount() {
+    const hero_banner_id = 8;
+    const heroBannerURL = Utilities.getBlockUrl(hero_banner_id);
+    const th = this;
+
+    th.serverRequest = axios.get(heroBannerURL)
+    .then(function(res) {
+      th.setState({
+        hr_data: res.data
+      });
+    })
+    .catch((err) => console.log('err:', err))
+  }
+
   render() {
-    const bg_img = 'https://ffw-style.herokuapp.com/images/contact-bg.jpg';
-    const pageTitle = 'Get in touch';
-    const pageDesc = "In need of some help? Tell us about your project by entering your contact details below. We'd love to hear from you.";
+    let bg_img = '';
+    let pageTitle = '';
+    let pageDesc = '';
+
+    if (Utilities.notEmpty(this.state.hr_data)) {
+      let {hr_data} = this.state;
+      bg_img = hr_data.field_image.length > 0 ? hr_data.field_image[0].url : '';
+      pageTitle = hr_data.field_title.length > 0 ? hr_data.field_title[0].value : '';
+      pageDesc = hr_data.body.length > 0 ? hr_data.body[0].value : '';
+    }
 
     return (
       <DefaultLayout title="Cotact Page">

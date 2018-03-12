@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+
+import * as Utilities from '../api';
 import Input from './Forms/Input'
 import Select from './Forms/Select'
 import Textarea from './Forms/Textarea'
 import Button from './Forms/Button'
-
-const HTTP_URL = 'https://dev-d8react.pantheonsite.io';
-// const HTTP_URL = 'http://d8react.local:8010';
 
 export default class Webform extends Component {
   constructor(props) {
@@ -51,7 +50,7 @@ export default class Webform extends Component {
 
     let postOptions = {
       method: 'POST',
-      url: HTTP_URL + '/webform_rest/submit',
+      url: Utilities.HTTP_URL + '/webform_rest/submit',
       data: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
@@ -72,7 +71,7 @@ export default class Webform extends Component {
   getCsrfToken(callback) {
     const th = this;
 
-    th.serverRequest = axios.get(HTTP_URL + '/rest/session/token')
+    th.serverRequest = axios.get(Utilities.HTTP_URL + '/rest/session/token')
                         .then(function(results) {
                           let csrfToken = results;
                           callback(csrfToken);
@@ -81,7 +80,7 @@ export default class Webform extends Component {
 
   componentDidMount() {
     const { webform_id } = this.props;
-    const urlData = HTTP_URL + '/webform_rest/' + webform_id + '/elements?_format=json';
+    const urlData = Utilities.getWebformRest(webform_id);
     const th = this;
 
     th.serverRequest = axios.get(urlData)
@@ -98,6 +97,8 @@ export default class Webform extends Component {
     const { form_elements } = this.state;
 
     let formElements = [];
+    console.log(form_elements);
+
     Object.keys(form_elements).forEach((key) => {
       if (key.indexOf('#') === -1) {
         let input = form_elements[key];

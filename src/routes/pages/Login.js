@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { Link, Redirect } from "react-router-dom";
+
+import * as Utilities from '../api';
 import DefaultLayout from '../layout/DefaultLayout';
+import BoxHero from '../components/BoxHero';
 
 class Login extends React.Component {
   constructor(props) {
@@ -13,11 +16,26 @@ class Login extends React.Component {
       password2: '',
       success: '',
       error: '',
-      redirect: false
+      redirect: false,
+      hr_data: {}
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    const hero_banner_id = 7;
+    const heroBannerURL = Utilities.getBlockUrl(hero_banner_id);
+    const th = this;
+
+    th.serverRequest = axios.get(heroBannerURL)
+    .then(function(res) {
+      th.setState({
+        hr_data: res.data
+      });
+    })
+    .catch((err) => console.log('err:', err))
   }
 
   handleChange(e) {
@@ -34,7 +52,7 @@ class Login extends React.Component {
 
     let self = this;
 
-    axios.post('http://dev-d8react.pantheonsite.io/user/login?_format=json', {
+    axios.post(Utilities.getUserLogin(), {
       name: this.state.name,
       pass: this.state.password
     })
@@ -68,7 +86,7 @@ class Login extends React.Component {
         <Redirect to="/" />
       );
     }
-    
+
     let messagesText = '';
     if (this.state.error) {
       messagesText = <div className="form-item"><p className="messages messages--error" dangerouslySetInnerHTML={{__html: this.state.error}} /></div>
@@ -79,19 +97,18 @@ class Login extends React.Component {
       successText = <div className="form-item"><p className="messages messages--status">{this.state.success}</p></div>
     }
 
+    let hero_banner = [];
+    if (Utilities.notEmpty(this.state.hr_data)) {
+      let {hr_data} = this.state;
+      hero_banner = hr_data.field_classes.length > 0 ? {...hero_banner, 'classes': hr_data.field_classes[0].value} : hero_banner;
+      hero_banner = hr_data.field_image.length > 0 ? {...hero_banner, 'image': hr_data.field_image[0]} : hero_banner;
+      hero_banner = hr_data.field_title.length > 0 ? {...hero_banner, 'title': hr_data.field_title[0].value} : hero_banner;
+      hero_banner = hr_data.body.length > 0 ? {...hero_banner, 'body': hr_data.body[0].value} : hero_banner;
+    }
+
     return (
       <DefaultLayout title="Home Page">
-        <div className="hero-banner hero-banner--small bg--dark">
-          <div className="hero-banner__image"><img src="https://i.imgur.com/LzPyv3z.jpg" alt="FFW images" width="1920" height="600" /> </div>
-          <div className="hero-banner__inner">
-            <div className="container">
-              <div className="hero-banner__content">
-                <h1 className="hero-banner__heading">Login</h1>
-                <h5 className="hero-banner__subtitle">Please enter your account and password to login</h5>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BoxHero data={hero_banner} />
         <div className="container">
           <form onSubmit={this.handleSubmit} className="box-content">
             {messagesText}

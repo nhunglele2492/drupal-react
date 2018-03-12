@@ -1,21 +1,46 @@
 import React from 'react';
+import axios from 'axios';
+
+import * as Utilities from '../api';
 import DefaultLayout from '../layout/DefaultLayout';
 import WorkList from '../components/WorkList';
+import BoxHero from '../components/BoxHero';
 
 class Work extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hr_data: {}
+    }
+  }
+
+  componentDidMount() {
+    const hero_banner_id = 5;
+    const heroBannerURL = Utilities.getBlockUrl(hero_banner_id);
+    const th = this;
+
+    th.serverRequest = axios.get(heroBannerURL)
+    .then(function(res) {
+      th.setState({
+        hr_data: res.data
+      });
+    })
+    .catch((err) => console.log('err:', err))
+  }
+
   render() {
+    let hero_banner = [];
+
+    if (Utilities.notEmpty(this.state.hr_data)) {
+      let {hr_data} = this.state;
+      hero_banner = hr_data.field_classes.length > 0 ? {...hero_banner, 'classes': hr_data.field_classes[0].value} : hero_banner;
+      hero_banner = hr_data.field_image.length > 0 ? {...hero_banner, 'image': hr_data.field_image[0]} : hero_banner;
+      hero_banner = hr_data.field_title.length > 0 ? {...hero_banner, 'title': hr_data.field_title[0].value} : hero_banner;
+    }
+
     return(
       <DefaultLayout>
-        <div className="hero-banner hero-banner--small bg--dark">
-          <div className="hero-banner__image"><img src="https://i.imgur.com/sFThdJi.jpg" alt="FFW images" width="1920" height="600" /> </div>
-          <div className="hero-banner__inner">
-            <div className="container">
-              <div className="hero-banner__content">
-                <h1 className="hero-banner__heading">Work</h1>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BoxHero data={hero_banner} />
         <WorkList/>
       </DefaultLayout>
     )

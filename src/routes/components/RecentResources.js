@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import * as Utilities from '../api';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -13,7 +15,7 @@ class RecentResources extends Component {
    // calling the componentDidMount() method after a component is rendered for the first time
   componentDidMount() {
     let th = this;
-    this.serverRequest = axios.get("http://dev-d8react.pantheonsite.io/api/recent-resources")
+    this.serverRequest = axios.get(Utilities.getFromView('recent-resources'))
     .then(function(results) {
        th.setState({
          data: results.data

@@ -9,9 +9,7 @@ export default class PageHeading extends Component {
         <div className="container">
           <div className="page-heading__inner">
             <h1 className="page-heading__title">{title}</h1>
-            <div className="page-heading__description">
-              {description}
-            </div>
+            <div className="page-heading__description" dangerouslySetInnerHTML={{__html: description}} />
           </div>
         </div>
       </div>

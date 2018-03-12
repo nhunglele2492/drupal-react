@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+
+import * as Utilities from '../api';
 import DefaultLayout from '../layout/DefaultLayout';
 
 class WorkDetailPage extends React.Component {
@@ -20,7 +22,7 @@ class WorkDetailPage extends React.Component {
       id = this.props.match.params.id;
     }
     let self = this;
-    this.serverRequest = axios.get('http://dev-d8react.pantheonsite.io/node/' + id + '?_format=hal_json')
+    this.serverRequest = axios.get(Utilities.getNodeUrl(id))
     .then(function(result){
       let img_src = '';
       Object.keys(result.data._embedded).forEach((key) => {

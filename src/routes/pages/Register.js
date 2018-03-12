@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+
+import * as Utilities from '../api';
 import DefaultLayout from '../layout/DefaultLayout';
 
 class Register extends React.Component {
@@ -42,7 +44,7 @@ class Register extends React.Component {
       return;
     }
 
-    axios.post('http://dev-d8react.pantheonsite.io/user/register?_format=json', {
+    axios.post(Utilities.getUserRegister(), {
       name: [{"value": this.state.name}],
       mail: [{"value": this.state.email}],
       pass: [{"value": this.state.password}]
